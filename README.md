@@ -18,6 +18,19 @@ Or install it yourself as:
 
     $ gem install formkeep
 
+## Caveats
+
+**You must have a ~/.formkeep.yaml file!**
+
+It should look something like this:
+
+~~~yaml
+---
+form_name: api_endpoint_url_in_full
+~~~
+
+You can have as many form entries as you like. They don't necessarily need to be named exactly how they are named on formkeep.com
+
 ## Usage
 
 ~~~rb
