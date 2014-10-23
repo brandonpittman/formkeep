@@ -3,6 +3,7 @@ require 'pp'
 require 'json'
 require 'net/http'
 require 'yaml/store'
+require 'stickynotifications'
 
 # @author Brandon Pittman
 # Helper methods for accessing Formkeep API
@@ -107,6 +108,12 @@ module Formkeep
       submissions.select do |submission|
         submission.fetch("read_at")
       end
+    end
+    # @!endgroup
+
+    # @!group Process
+    def sticky(text)
+      StickyNotifications::Note.new.create(text)
     end
     # @!endgroup
   end

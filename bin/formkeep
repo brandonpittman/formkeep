@@ -17,10 +17,13 @@ opts = Slop.parse do
 
     Please make sure you have a valid Formkeep API endpoint saved in ~/.formkeep.yaml
     EOF
+    on :s, :sticky, "Create sticky notification"
     run do |opts, args|
       unless args.empty?
         form = Formkeep::Form.new(args[0])
-        puts form.unread_submissions.length
+        count = form.unread_submissions.length
+        puts count
+        form.sticky(count.to_s) if opts[:s]
       else
         puts opts
       end

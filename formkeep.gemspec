@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
 
   spec.add_dependency "slop"
+  spec.add_dependency "stickynotifications", "~> 0.0.5 "
 end
