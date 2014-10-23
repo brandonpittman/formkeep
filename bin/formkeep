@@ -1,8 +1,24 @@
 #!/usr/bin/env ruby
 
 require 'formkeep'
+require 'slop'
 
-form_name = ARGV[0]
-form = Formkeep::Cli.new(form_name)
-puts "You have unread submissions!" if form.unread_submissions.length > 0
+opts = Slop.parse do
+  banner "Usage: formkeep check FORM"
+  on :v, :version do
+    puts Formkeep::VERSION
+  end
 
+  command 'check' do
+    run do |options, args|
+      form = Formkeep::Cli.new(args[0]) if args
+      if form.unread_submissions.length > 0
+        puts "You have unread submissions!" 
+      else
+        puts "You have no unread submissions."
+      end
+    end
+  end
+end
+
+puts opts unless ARGV[0] == 'check'
