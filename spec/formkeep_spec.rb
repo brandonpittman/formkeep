@@ -18,6 +18,6 @@ describe Formkeep do
   end
 
   it "pulls the latest submission" do
-    expect(pixelsnatch.latest_submission.class).to eq(Hash)
+    expect(pixelsnatch.latest_submission.class).to eq(Hash) if pixelsnatch.submissions.length > 0
   end
 end
