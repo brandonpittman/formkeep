@@ -5,17 +5,24 @@ require 'slop'
 
 opts = Slop.parse do
   banner "Usage: formkeep check FORM"
-  on :v, :version do
+  on :h, :help, "Display help"
+  on :v, :version, "Display version" do
     puts Formkeep::VERSION
+    exit
   end
 
   command 'check' do
-    run do |options, args|
-      form = Formkeep::Form.new(args[0]) if args
-      if form.unread_submissions.length > 0
-        puts "You have unread submissions!" 
+    banner <<-EOF
+    Usage: formkeep check FORM
+
+    Please make sure you have a valid Formkeep API endpoint saved in ~/.formkeep.yaml
+    EOF
+    run do |opts, args|
+      unless args.empty?
+        form = Formkeep::Form.new(args[0])
+        puts form.unread_submissions.length
       else
-        puts "You have no unread submissions."
+        puts opts
       end
     end
   end

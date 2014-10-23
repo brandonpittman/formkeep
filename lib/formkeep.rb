@@ -60,7 +60,8 @@ module Formkeep
 
     # @return [Array] all submissions
     def submissions
-      JSON.parse(response)["submissions"]
+      all = JSON.parse(response)["submissions"]
+      all.reject { |sub| sub["spam"] }
     end
 
     # Latest submission info
