@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Formkeep do
 
-  let(:test) {Formkeep::Cli.new("test")}
-  let(:pixelsnatch) {Formkeep::Cli.new("pixelsnatch")}
+  let(:test) {Formkeep::Form.new("test")}
+  let(:pixelsnatch) {Formkeep::Form.new("pixelsnatch")}
 
   it 'has a version number' do
     expect(Formkeep::VERSION).not_to be nil

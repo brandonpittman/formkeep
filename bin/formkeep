@@ -11,7 +11,7 @@ opts = Slop.parse do
 
   command 'check' do
     run do |options, args|
-      form = Formkeep::Cli.new(args[0]) if args
+      form = Formkeep::Form.new(args[0]) if args
       if form.unread_submissions.length > 0
         puts "You have unread submissions!" 
       else
