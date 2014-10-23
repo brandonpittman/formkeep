@@ -7,30 +7,39 @@ require 'yaml/store'
 # @author Brandon Pittman
 module Formkeep
   class Cli
+
+    attr_accessor :form
+
+    def initialize(form)
+      @form = form
+    end
+
     # @!group Getters
     def config
       YAML::Store.new("#{Dir.home}/.formkeep.yaml")
     end
 
     def get_key(key)
-      config.transaction do
-        config[key]
+      store = config
+      store.transaction do
+        store[key]
       end
     end
 
     def set_key(key, value)
-      config.transaction do
-        config[key] = value
+      store = config
+      store.transaction do
+        store[key] = value
       end
     end
 
     # Sets API endpoint
-    def api(form_name)
-      get_key(form_name)
+    def api
+      get_key(form)
     end
 
     def response
-      Net::HTTP.get_response(URI(endpoint)).body
+      Net::HTTP.get_response(URI(api)).body
     end
 
     def submissions
@@ -66,3 +75,7 @@ module Formkeep
     # @!endgroup
   end
 end
+
+form = Formkeep::Cli.new("pixelsnatch")
+form.latest_submission.class # => Hash
+form.submissions.class # => Array
