@@ -1,3 +1,8 @@
 #!/usr/bin/env ruby
 
 require 'formkeep'
+
+form_name = ARGV[0]
+form = Formkeep::Cli.new(form_name)
+puts "You have unread submissions!" if form.unread_submissions.length > 0
+
