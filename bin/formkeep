@@ -23,7 +23,7 @@ opts = Slop.parse do
         form = Formkeep::Form.new(args[0])
         count = form.unread_submissions.length
         puts count
-        form.sticky(count.to_s) if opts[:s]
+        form.sticky("#{form.form} has unread submissions.") if (opts[:s] && count > 0)
       else
         puts opts
       end

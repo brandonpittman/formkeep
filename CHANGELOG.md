@@ -3,6 +3,12 @@
 ## Unreleased
 
 - `formkeep add FORM_NAME`
+## 0.0.6 --- 2014-10-24
+
+### Added
+
+- added -s, --sticky flags for creating sticky notifications using [Sticky Notifications](http://instinctivecode.com/sticky-notifications/) on OS X.
+
 ## 0.0.5 --- 2014-10-23
 
 ### Changed
