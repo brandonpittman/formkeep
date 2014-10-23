@@ -4,16 +4,16 @@ require 'formkeep'
 require 'slop'
 
 opts = Slop.parse do
-  banner "Usage: formkeep check FORM"
+  banner "Usage: formkeep unread FORM"
   on :h, :help, "Display help"
   on :v, :version, "Display version" do
     puts Formkeep::VERSION
     exit
   end
 
-  command 'check' do
+  command 'unread' do
     banner <<-EOF
-    Usage: formkeep check FORM
+    Usage: formkeep unread FORM
 
     Please make sure you have a valid Formkeep API endpoint saved in ~/.formkeep.yaml
     EOF
@@ -28,4 +28,4 @@ opts = Slop.parse do
   end
 end
 
-puts opts unless ARGV[0] == 'check'
+puts opts unless ARGV[0] == 'unread'

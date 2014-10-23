@@ -24,7 +24,7 @@ Or install it yourself as:
 
 It should look something like this:
 
-~~~
+~~~rb
 form_name: api_endpoint_url_in_full
 ~~~
 
@@ -32,8 +32,8 @@ You can have as many form entries as you like. They don't necessarily need to be
 
 ## Usage
 
-~~~
-formkeep check FORM
+~~~rb
+formkeep unread FORM
 ~~~
 
 ## Contributing

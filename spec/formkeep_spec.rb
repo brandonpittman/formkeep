@@ -4,6 +4,7 @@ describe Formkeep do
 
   let(:test) {Formkeep::Form.new("test")}
   let(:pixelsnatch) {Formkeep::Form.new("pixelsnatch")}
+  let(:subs) {pixelsnatch.submissions}
 
   it 'has a version number' do
     expect(Formkeep::VERSION).not_to be nil
@@ -14,10 +15,10 @@ describe Formkeep do
   end
 
   it "it pulls a submissions array" do
-    expect(pixelsnatch.submissions.class).to eq(Array)
+    expect(subs.class).to eq(Array)
   end
 
   it "pulls the latest submission" do
-    expect(pixelsnatch.latest_submission.class).to eq(Hash) if pixelsnatch.submissions.length > 0
+    expect(pixelsnatch.latest_submission.class).to eq(Hash) if subs.length > 0
   end
 end
