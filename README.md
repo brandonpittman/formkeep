@@ -24,8 +24,7 @@ Or install it yourself as:
 
 It should look something like this:
 
-~~~yaml
----
+~~~
 form_name: api_endpoint_url_in_full
 ~~~
 
@@ -33,8 +32,7 @@ You can have as many form entries as you like. They don't necessarily need to be
 
 ## Usage
 
-~~~rb
-# Check for unread submissions
+~~~
 formkeep check FORM
 ~~~
 
