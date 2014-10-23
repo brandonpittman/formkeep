@@ -2,8 +2,13 @@
 
 ## Unreleased
 
-- `formkeep check FORM_NAME`
 - `formkeep add FORM_NAME`
+## 0.0.3 --- 2014-10-23
+
+### Added
+
+- `formkeep check FORM_NAME` now available
+
 ## 0.0.2 --- 2014-10-23
 
 ### Added

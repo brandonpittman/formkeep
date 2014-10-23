@@ -1,6 +1,6 @@
 # Formkeep
 
-TODO: Write a gem description
+Formkeep lets you access your Formkeep API data.
 
 ## Installation
 
@@ -22,11 +22,7 @@ Or install it yourself as:
 
 ~~~rb
 # Check for unread submissions
-formkeep check
-# Print unread submissions
-formkeep unread
-# Print newest submission
-formkeep newest
+formkeep check FORM
 ~~~
 
 ## Contributing
