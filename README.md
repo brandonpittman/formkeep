@@ -25,6 +25,7 @@ Or install it yourself as:
 It should look something like this:
 
 ~~~
+---
 form_name: api_endpoint_url_in_full
 ~~~
 
@@ -32,8 +33,12 @@ You can have as many form entries as you like. They don't necessarily need to be
 
 ## Usage
 
+Simply pass the key of the form from `~/.formkeep.yaml` to the `unread` command to check for unread messages. If you have [Sticky Notifications][sn] installed (OS X only) you can have a sticky notification created by passing the `-s` or `--sticky` flag.
+
+[sn]: http://instinctivecode.com/sticky-notifications/
+
 ~~~
-formkeep unread FORM
+formkeep unread FORM [-s]
 ~~~
 
 ## Contributing

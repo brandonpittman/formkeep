@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- `formkeep add FORM_NAME`
+- `formkeep add FORM_NAME FORM_ENDPOINT`
 ## 0.0.6 --- 2014-10-24
 
 ### Added
