@@ -112,6 +112,10 @@ module Formkeep
     # @!endgroup
 
     # @!group Process
+    # @param text [String] text to pass to Sticky Notifications
+    # @return [Nil]
+    # @note This requires the OS X app, Sticky Notifications.
+    # @since 0.0.6
     def sticky(text)
       StickyNotifications::Note.new.create(text)
     end
