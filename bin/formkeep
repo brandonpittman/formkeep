@@ -4,9 +4,9 @@ require 'formkeep'
 require 'slop'
 
 opts = Slop.parse do
-  banner "Usage: formkeep unread FORM"
-  on :h, :help, "Display help"
-  on :v, :version, "Display version" do
+  banner 'Usage: formkeep unread FORM'
+  on :h, :help, 'Display help'
+  on :v, :version, 'Display version' do
     puts Formkeep::VERSION
     exit
   end
@@ -15,17 +15,19 @@ opts = Slop.parse do
     banner <<-EOF
     Usage: formkeep unread FORM
 
-    Please make sure you have a valid Formkeep API endpoint saved in ~/.formkeep.yaml
+    Make sure you have a valid Formkeep API endpoint saved in ~/.formkeep.yaml
     EOF
-    on :s, :sticky, "Create sticky notification"
-    run do |opts, args|
-      unless args.empty?
+    on :s, :sticky, 'Create sticky notification'
+    run do |options, args|
+      if !args.empty?
         form = Formkeep::Form.new(args[0])
         count = form.unread_submissions.length
         puts count
-        form.sticky("#{form.form} has unread submissions.") if (opts[:s] && count > 0)
+        if options[:s] && count > 0
+          form.sticky("#{form.form} has unread submissions.")
+        end
       else
-        puts opts
+        puts options
       end
     end
   end

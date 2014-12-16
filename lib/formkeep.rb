@@ -1,4 +1,4 @@
-require "formkeep/version"
+require 'formkeep/version'
 require 'pp'
 require 'json'
 require 'net/http'
@@ -8,10 +8,9 @@ require 'stickynotifications'
 # @author Brandon Pittman
 # Helper methods for accessing Formkeep API
 module Formkeep
-# @author Brandon Pittman
+  # @author Brandon Pittman
   # Helper methods for accessing Formkeep API
   class Form
-
     # @!attribute form
     #   @return [String] name of Form to be used
     # @since 0.0.4
@@ -69,8 +68,8 @@ module Formkeep
     # @return [Array] all submissions
     # @since 0.0.4
     def submissions
-      all = JSON.parse(response)["submissions"]
-      all.reject { |sub| sub["spam"] }
+      all = JSON.parse(response)['submissions']
+      all.reject { |sub| sub['spam'] }
     end
 
     # Latest submission info
@@ -83,13 +82,13 @@ module Formkeep
     # @return [String] name of latest submission
     # @since 0.0.4
     def latest_name
-      latest_submission.fetch("name")
+      latest_submission.fetch('name')
     end
 
     # @return [String] email of latest submission
     # @since 0.0.4
     def latest_email
-      latest_submission.fetch("email")
+      latest_submission.fetch('email')
     end
     # @!endgroup
 
@@ -98,7 +97,7 @@ module Formkeep
     # @since 0.0.4
     def unread_submissions
       submissions.reject do |submission|
-        submission.fetch("read_at")
+        submission.fetch('read_at')
       end
     end
 
@@ -106,7 +105,7 @@ module Formkeep
     # @since 0.0.4
     def read_submissions
       submissions.select do |submission|
-        submission.fetch("read_at")
+        submission.fetch('read_at')
       end
     end
     # @!endgroup
@@ -117,7 +116,7 @@ module Formkeep
     # @note This requires the OS X app, Sticky Notifications.
     # @since 0.0.6
     def sticky(text)
-      StickyNotifications::Note.new.create(text)
+      StickyNotifications::Note.new.create(text, 'Formkeep')
     end
     # @!endgroup
   end
