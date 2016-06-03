@@ -4,6 +4,7 @@ require 'json'
 require 'net/http'
 require 'yaml/store'
 require 'stickynotifications'
+require 'fileutils'
 
 # @author Brandon Pittman
 # Helper methods for accessing Formkeep API
@@ -28,7 +29,8 @@ module Formkeep
     # @return [Pstore] YAML::Store object
     # @since 0.0.4
     def config
-      YAML::Store.new("#{Dir.home}/.formkeep.yaml")
+      FileUtils.mkdir_p("#{ENV['HOME']}/.config/formkeep")
+      YAML::Store.new("#{ENV['HOME']}/.config/formkeep/formkeep.yaml")
     end
 
     # @param [String] key to look up

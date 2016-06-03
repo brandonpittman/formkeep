@@ -27,6 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard-ctags-bundler"
   spec.add_development_dependency "rubocop"
 
-  spec.add_dependency "slop"
+  spec.add_dependency "slop", "< 3.9"
   spec.add_dependency "stickynotifications", "~> 0.0.5 "
 end
